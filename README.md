@@ -57,8 +57,6 @@ https://docs.google.com/document/d/1aKlcOOrruoDGUrMz7dtCZCt4_mSsRXdPrIUI4IU9GeQ/
  
 se encuentran las claves de acceso al bucket.
 
-Tambien hay una copia en la raiz.
-
 ## Running the app
 ```bash
 # development
