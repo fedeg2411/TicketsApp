@@ -1,0 +1,17 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TicketQl {
+  id: ID!
+  title: String!
+  category: String!
+  detail: String!
+  problem: String!
+  image: String
+}
+
+type Query {
+  tickets(status: Boolean): [TicketQl!]!
+  todo(id: Int!): TicketQl!
+}
