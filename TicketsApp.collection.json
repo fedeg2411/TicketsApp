@@ -1,0 +1,563 @@
+{
+	"info": {
+		"_postman_id": "9f2ee63f-152b-4485-b2e6-d0b29f748537",
+		"name": "TicketsApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"federico.gonzalez@cencosud.com\",\n    \"password\" : \"Abc123\",\n    \"fullName\" : \"Federico Gonzalez\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"federico.gonzalez@cencosud.com\",\n    \"password\" : \"Abc123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "makeAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"4ca681e8-0d58-4e36-88a6-5ad3862874e1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "images",
+			"item": [
+				{
+					"name": "ver imagen",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyNTZhNGE4LTdhMGQtNGFiYi04YmFjLTAwZmEwMDIzZDAwZSIsImlhdCI6MTY3OTkyMDIxOSwiZXhwIjoxNjc5OTQxODE5fQ.2eMODONe6TuZuWFbbdQbNO84PvUb63A0l6yv4DyLzIE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/federicogonzalez/Downloads/gatito2.jpeg"
+								},
+								{
+									"key": "name",
+									"value": "ad7e972d-9abb-4d40-98f5-630c4e6dc7f8",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/tickets/bucket/image/7461c878-f780-4831-9a73-624e65397295",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"tickets",
+								"bucket",
+								"image",
+								"7461c878-f780-4831-9a73-624e65397295"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new_image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/federicogonzalez/Downloads/gatito2.jpeg"
+								},
+								{
+									"key": "campo",
+									"value": "nombre",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/tickets/bucket/image/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"tickets",
+								"bucket",
+								"image",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "getAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0MDhiOGY0LWYwMTAtNDNiZi1iODNiLWJmOTk4MGQwMGI0YyIsImlhdCI6MTY4MTEyODYyNywiZXhwIjoxNjgxMTUwMjI3fQ.avMJ8DXZvMEF4mg48zBJIdBPB5Exs1ai9vmsy0ySXD4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Se me rompio la lavaropa\",\n    \"category\" : \"Falla\",\n    \"detail\" : [{\n        \"invoiceNumber\" : \"12312\",\n        \"date\" : \"24/11/2021\",\n        \"productCode\" : \"2234124\"\n    }],\n    \"description\": \"Compre la lavaropa el 20/1/2020\",\n    \"problem\": \"Estaba lavando la ropa y se prendio fuego el equipo\",\n    \"image\" : \"62807ad8-6a51-4f7c-9328-260527cab75e\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/tickets/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"tickets",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategory",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0MDhiOGY0LWYwMTAtNDNiZi1iODNiLWJmOTk4MGQwMGI0YyIsImlhdCI6MTY4MTEzMDI2NiwiZXhwIjoxNjgxMTUxODY2fQ.VK8Hfesr8hEXbTX8NtQA6nn6f8ELN2nU_1_DyHbXalM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Se me rompio la lavaropa\",\n    \"category\" : \"Falla\",\n    \"detail\" : [{\n        \"invoiceNumber\" : \"12312\",\n        \"date\" : \"24/11/2021\",\n        \"productCode\" : \"2234124\"\n    }],\n    \"description\": \"Compre la lavaropa el 20/1/2020\",\n    \"problem\": \"Estaba lavando la ropa y se prendio fuego el equipo\",\n    \"image\" : \"62807ad8-6a51-4f7c-9328-260527cab75e\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/tickets/category/falla",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"tickets",
+						"category",
+						"falla"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOne",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyNTZhNGE4LTdhMGQtNGFiYi04YmFjLTAwZmEwMDIzZDAwZSIsImlhdCI6MTY4MDUyMzU4NSwiZXhwIjoxNjgwNTQ1MTg1fQ.3waiARC7deaFoj2e2sFMclEc4wg2_7b3lP68pjiQdoM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Se me rompio la lavaropa\",\n    \"category\" : \"Falla\",\n    \"detail\" : [{\n        \"invoiceNumber\" : \"12312\",\n        \"date\" : \"24/11/2021\",\n        \"productCode\" : \"2234124\"\n    }],\n    \"description\": \"Compre la lavaropa el 20/1/2020\",\n    \"problem\": \"Estaba lavando la ropa y se prendio fuego el equipo\",\n    \"image\" : \"62807ad8-6a51-4f7c-9328-260527cab75e\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/tickets/getOne/93666cc3-ff9b-4fcd-96d0-ebb8a7a888da",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"tickets",
+						"getOne",
+						"93666cc3-ff9b-4fcd-96d0-ebb8a7a888da"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLike",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyNTZhNGE4LTdhMGQtNGFiYi04YmFjLTAwZmEwMDIzZDAwZSIsImlhdCI6MTY3OTkyMDIxOSwiZXhwIjoxNjc5OTQxODE5fQ.2eMODONe6TuZuWFbbdQbNO84PvUb63A0l6yv4DyLzIE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Se me rompio la lavaropa\",\n    \"category\" : \"Falla\",\n    \"detail\" : [{\n        \"invoiceNumber\" : \"12312\",\n        \"date\" : \"24/11/2021\",\n        \"productCode\" : \"2234124\"\n    }],\n    \"description\": \"Compre la lavaropa el 20/1/2020\",\n    \"problem\": \"Estaba lavando la ropa y se prendio fuego el equipo\",\n    \"image\" : \"62807ad8-6a51-4f7c-9328-260527cab75e\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/tickets/like/ropa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"tickets",
+						"like",
+						"ropa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new ticket",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0MDhiOGY0LWYwMTAtNDNiZi1iODNiLWJmOTk4MGQwMGI0YyIsImlhdCI6MTY4MTEzMjgzMCwiZXhwIjoxNjgxMTU0NDMwfQ.4OgdjMlqj9zV4Cb-Kc8qiLJIVaYxZCghe5rJ7Vebp3Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Titulo Prueba\",\n    \"category\" : \"Falla\",\n    \"detail\" : [{\n        \"invoiceNumber\" : \"12312\",\n        \"date\" : \"24/11/2020\",\n        \"productCode\" : \"1235412354\"\n    }],\n    \"description\": \"Compre mueva la lavaropa el 20/1/2020\",\n    \"problem\": \"pruebita\",\n    \"image\" : \"a39fe5a8-0fa7-4ba2-9875-f65b7aae70af\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/tickets/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"tickets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTicket",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyNTZhNGE4LTdhMGQtNGFiYi04YmFjLTAwZmEwMDIzZDAwZSIsImlhdCI6MTY3OTkyMDIxOSwiZXhwIjoxNjc5OTQxODE5fQ.2eMODONe6TuZuWFbbdQbNO84PvUb63A0l6yv4DyLzIE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"asdasd\",\n    \"category\" : \"Falla\",\n    \"detail\" : [{\n        \"invoiceNumber\" : \"12312\",\n        \"productCode\" : \"1235412354\",\n        \"date\" : \"21/2/2020\"\n    }],\n    \"description\": \"Compre mueva la lavaropa el 20/1/2020\",\n    \"problem\": \"pruebita\",\n    \"image\" : \"62807ad8-6a51-4f7c-9328-260527cab75e\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/tickets/0cd42f33-97a2-459e-967b-e4cd5a7703fe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"tickets",
+						"0cd42f33-97a2-459e-967b-e4cd5a7703fe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTicket",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyNTZhNGE4LTdhMGQtNGFiYi04YmFjLTAwZmEwMDIzZDAwZSIsImlhdCI6MTY3OTkyMDIxOSwiZXhwIjoxNjc5OTQxODE5fQ.2eMODONe6TuZuWFbbdQbNO84PvUb63A0l6yv4DyLzIE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"asdasd\",\n    \"category\" : \"Falla\",\n    \"detail\" : [{\n        \"invoiceNumber\" : \"12312\",\n        \"productCode\" : \"1235412354\",\n        \"date\" : \"21/2/2020\"\n    }],\n    \"description\": \"Compre mueva la lavaropa el 20/1/2020\",\n    \"problem\": \"pruebita\",\n    \"image\" : \"62807ad8-6a51-4f7c-9328-260527cab75e\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/tickets/0cd42f33-97a2-459e-967b-e4cd5a7703fe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"tickets",
+						"0cd42f33-97a2-459e-967b-e4cd5a7703fe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graphql",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
